@@ -1,7 +1,29 @@
 .App {
   text-align: center;
+  background-color: rgb(240, 226, 200);
+  height: 100vh;
+}
+
+.Header {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .Header-Text {
+  font-family: cursive;
   font-size: 60px;
+  color: rgb(14, 13, 70);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.NavBar {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.Image {
+  margin-top: 10px;
+  width: 150px;
+  margin: 0px;
 }
