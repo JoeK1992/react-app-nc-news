@@ -6,7 +6,7 @@ function Header () {
      return (
     <header className= "Header">
     <h1 className= "Header-Text">Welcome to NC News!</h1>
-    <img alt="logo" src= {northcodersLogo}/>
+    <img alt="logo" src= {northcodersLogo}/>ss
 </header>
 )
 }         
