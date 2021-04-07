@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   background-color: rgb(240, 226, 200);
-  height: 100vh;
+  height: 100%;
 }
 
 .Header {
@@ -32,4 +32,33 @@
   margin-top: 10px;
   width: 150px;
   margin: 0px;
+}
+
+.Articles-List {
+  list-style-type: none;
+}
+
+.More-Articles-Button {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  font-size: 5vw;
+  background-color: rgba(173, 29, 125, 0.5);
+  color: white;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+  display: block;
+}
+
+.Previous-Articles-Button {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  max-width: 100px;
+  font-size: 5vw;
+  background-color: rgba(173, 29, 125, 0.5);
+  color: white;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+  display: block;
 }
