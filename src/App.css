@@ -17,9 +17,15 @@
   margin-top: 20px;
 }
 
-.NavBar {
+.NavBarHome {
   font-size: 40px;
   margin-bottom: 10px;
+}
+
+.NavBarArticlesPage {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: blue;
 }
 
 .Image {

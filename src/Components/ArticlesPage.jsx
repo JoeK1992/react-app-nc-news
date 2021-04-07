@@ -2,6 +2,8 @@ import React from "react";
 
 import {getAllArticles} from "../utils/functions";
 
+import NavBarArticlesPage from "../Components/NavBarArticlesPage";
+
 class ArticlesPage extends React.Component {
     state = {
         articles: []
@@ -18,6 +20,7 @@ class ArticlesPage extends React.Component {
         
         return (
             <main className= "Articles">
+                <NavBarArticlesPage/>
                 <h1 className= "Header-Text">Articles</h1>
                 <ul className= "Articles-List">                    
                 </ul>
@@ -25,7 +28,5 @@ class ArticlesPage extends React.Component {
         );
     }
 }
-
-
  
 export default ArticlesPage
