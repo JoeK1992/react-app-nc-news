@@ -36,3 +36,10 @@ export const changeArticleVotes = (article_id, increment) => {
 export const changeCommentVotes = (comment_id, increment) => {
   return ncNewsApi.patch(`/comments/${comment_id}`, { inc_votes: increment });
 };
+
+export const postComment = (article_id, body, username) => {
+  return ncNewsApi.post(`/articles/${article_id}/comments`, {
+    body: body,
+    username: username,
+  });
+};

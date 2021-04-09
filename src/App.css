@@ -60,31 +60,25 @@
   font-style: italic;
 }
 
-.More-Articles-Button {
-  position: absolute;
-  top: 0%;
-  right: 0%;
-  font-size: 5vw;
-  background-color: rgba(173, 29, 125, 0.5);
-  color: white;
-  font-family: "Comfortaa", cursive;
-  text-align: center;
-  display: block;
-}
-
-.Previous-Articles-Button {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  max-width: 100px;
-  font-size: 5vw;
-  background-color: rgba(173, 29, 125, 0.5);
-  color: white;
-  font-family: "Comfortaa", cursive;
-  text-align: center;
-  display: block;
+.Articles-Voter {
+  margin-bottom: 25px;
 }
 
 .DropBox {
   background-color: rgb(145, 192, 83);
+}
+
+.Comment-Adder {
+  margin-top: 10px;
+}
+
+.Comments-List {
+  list-style-type: none;
+}
+
+.Submit-Comment {
+  position: relative;
+  background-color: green;
+  left: 13.5%;
+  bottom: 21.5px;
 }

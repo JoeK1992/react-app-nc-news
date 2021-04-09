@@ -21,7 +21,7 @@ class ArticlesVoter extends React.Component {
         const {article_id, votes} = this.props              
         
         return (
-            <div>
+            <div className= "Articles-Voter">
             <button className= "Votes-Button" onClick= {() => {this.updateArticleVotes(article_id, 1)}}>+</button>
             <p>Votes: {this.state.voteChanges + votes}</p>
             <button className= "Votes-Button" onClick= {() => {this.updateArticleVotes(article_id, -1)}}>-</button>

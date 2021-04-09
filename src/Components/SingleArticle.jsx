@@ -1,33 +1,39 @@
 import React from "react";
 
-import { getArticleByID} from "../utils/functions";
+import { getArticleByID, getCommentsByArticleID} from "../utils/functions";
 
-import NavBarArticlesPage from "../Components/NavBarHome";
+import NavBarArticlesPage from "./NavBarArticlesPage";
 
-import Comments from "../Components/Comments";
+import CommentsVoter from "../Components/Comments";
 
 import ArticlesVoter from "./ArticlesVoter";
 
 import {Loader} from "../Components/Loader";
 
+import CommentAdder from "../Components/CommentAdder";
+
+
+
 class SingleArticle extends React.Component {
     state = {
       article: [],
+      comments:[],
       isLoading: true
       };     
   
     componentDidMount() {
-      const { article_id} = this.props;      
+      const { article_id} = this.props;
       
-      getArticleByID(article_id).then((article) => {
-       this.setState({ article, isLoading: false });
+      Promise.all([getArticleByID(article_id), getCommentsByArticleID(article_id)])      
+      .then(([article, comments]) => {
+       this.setState({ article, comments, isLoading: false });
       });
     }
 
     render() {     
             
             const {title, author, body, votes} = this.state.article
-            const {isLoading} = this.state;                   
+            const {isLoading, comments} = this.state;                   
             const { article_id} = this.props;
 
             if (isLoading) {
@@ -40,8 +46,18 @@ class SingleArticle extends React.Component {
             <h1>{title}</h1>,
             <h2>{author}</h2>,
             <p>{body}</p>
-            <ArticlesVoter article_id= {article_id} votes= {votes}/>            
-            <Comments article_id= {article_id} votes= {votes}/>
+            <ul className= "Comments-List">
+                {comments.map(({author, body, created_at, votes, comment_id}) => (
+                    <li className= "Comments-List-Item" key= {comment_id}>                        
+                        <h3>{author}</h3>
+                        <p>{body}</p>
+                        <h3>{created_at}</h3>
+                       <CommentsVoter comment_id= {comment_id} votes= {votes}/>                       
+                    </li>
+                ))}
+            </ul>
+            <ArticlesVoter article_id= {article_id} votes= {votes}/>
+            <CommentAdder className= "Comment-Adder"/>                              
             </main>
         )
     
