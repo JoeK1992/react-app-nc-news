@@ -47,3 +47,7 @@ export const postComment = (article_id, body, username) => {
       return res.data.comment;
     });
 };
+
+export const removeComment = (comment_id) => {
+  return ncNewsApi.delete(`/comments/${comment_id}`);
+};

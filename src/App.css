@@ -77,8 +77,6 @@
 }
 
 .Submit-Comment {
-  position: relative;
   background-color: green;
-  left: 192px;
-  bottom: 21.5px;
+  margin-left: 0.5em;
 }
