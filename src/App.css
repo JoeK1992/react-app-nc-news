@@ -36,6 +36,28 @@
 
 .Articles-List {
   list-style-type: none;
+  border-width: 100px lightgreen;
+}
+
+.Article-List-Item {
+  border: solid 5px rgb(145, 145, 233);
+  width: 80%;
+  border-right: 20%;
+  margin-bottom: 20px;
+}
+
+.Article-Title {
+  font-family: cursive;
+  margin-bottom: 0px;
+  border: lightgreen;
+}
+
+.Article-Topic {
+  font-style: bold;
+}
+
+.Article-Author {
+  font-style: italic;
 }
 
 .More-Articles-Button {
@@ -61,4 +83,8 @@
   font-family: "Comfortaa", cursive;
   text-align: center;
   display: block;
+}
+
+.DropBox {
+  background-color: rgb(145, 192, 83);
 }

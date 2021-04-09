@@ -5,7 +5,7 @@ function NavBarHome () {
     return (
         <div>
             <Link to="/articles" className="Articles_Link">
-                <nav className="NavBarHome">Articles</nav>
+                <nav className="NavBarHome">All Articles</nav>
             </Link>
         </div>
     )

@@ -1,10 +1,12 @@
 import React from "react";
 
-import {getArticles} from "../utils/functions";
+import {getArticles, getSortedArticles} from "../utils/functions";
 
 import NavBarArticlesPage from "./NavBarArticlesPage";
 
-import {DropBox} from "./DropBox";
+import {DropBoxTopic, DropBoxSort} from "./DropBoxs";
+
+import {Link} from "@reach/router";
 
 
 class ArticlesPage extends React.Component {
@@ -21,15 +23,16 @@ class ArticlesPage extends React.Component {
     }
 
     handlePageChange = (increment) => {
+        console.log(this.state.page)
         this.setState((currState) => {
             return {page: currState.page+increment}
         })
       }
 
         getNewPage = (increment) => {
-            console.log(this.state.page)
+           
         this.handlePageChange(increment)
-        getArticles((this.state.page-1)*10, this.state.page*10).then((articles) => {                           
+        getArticles((this.state.page-1)*10, this.state.page*10).then((articles) => {                                   
             this.setState({articles});
             });
 
@@ -44,8 +47,14 @@ class ArticlesPage extends React.Component {
             })
         }
 
-    render() {       
-                                             
+        handleSort = (event) => {
+            console.log("in handle sort")
+            getSortedArticles(event.target.value).then((articles) => {
+                this.setState({articles})
+            })
+        }
+
+    render() {                                                
            
         const articles = this.state.articles;
         return (
@@ -54,16 +63,20 @@ class ArticlesPage extends React.Component {
                 <button onClick= {() => {this.getNewPage(1)}}className= "More-Articles-Button">more</button>
                 <NavBarArticlesPage/>
                 <h1 className= "Header-Text">Articles</h1>
-                Filter articles by topic:  <DropBox handleTopicChange= {this.handleTopicChange}/>
+                Filter articles by topic:  <DropBoxTopic handleTopicChange= {this.handleTopicChange}/>
+                Sort articles by: <DropBoxSort handleSort= {this.handleSort}/>
                 <ul className= "Articles-List">
                     {articles.map(({article_id, title, topic, author}) => (
-                        <li key= {article_id}>
-                            <h2>{title}!</h2>
-                            <h3>{topic}</h3>
-                            <h3>by {author}</h3>
+                        <li className= "Article-List-Item" key= {article_id}>
+                            <Link to= {`/articles/${article_id}`}>
+                            <h2 className= "Article-Title">{title}!</h2>
+                                </Link>                  
+                            
+                            <h3 className= "Article-Topic"> {topic}</h3>
+                            <h3>by {author}</h3>                            
                         </li>
                     ))}                    
-                </ul>
+                </ul>                
             </main>
         );
     }
