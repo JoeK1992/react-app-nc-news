@@ -6,7 +6,7 @@ import CommentsVoter from "../Components/CommentsVoter";
 
 class Comments extends React.Component {
     state = {
-        comments: []
+        comments: [],
     }
 
     componentDidMount () {
@@ -17,7 +17,7 @@ class Comments extends React.Component {
 
     render() {
 
-        const comments = this.state.comments;
+        const {comments} = this.state;        
        
         return (
              <ul className= "Comments-List">

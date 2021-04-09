@@ -8,17 +8,18 @@ import {DropBoxTopic, DropBoxSort} from "./DropBoxs";
 
 import {Link} from "@reach/router";
 
+import {Loader} from "./Loader";
+
 
 class ArticlesPage extends React.Component {
     state = {
         articles: [],
-        
+        isLoading: true        
     }   
 
     componentDidMount() {
         getArticles().then((articles) => {                           
-            this.setState({articles});
-            
+            this.setState({articles, isLoading: false});            
             });
     }   
                     
@@ -40,7 +41,12 @@ class ArticlesPage extends React.Component {
 
     render() {                                                
            
-        const articles = this.state.articles;
+        const {articles, isLoading} = this.state;
+
+        if (isLoading) {
+            return <Loader/>
+        }
+
         return (
             <main className= "Articles">           
                 <NavBarArticlesPage/>
@@ -52,8 +58,7 @@ class ArticlesPage extends React.Component {
                         <li className= "Article-List-Item" key= {article_id}>
                             <Link to= {`/articles/${article_id}`}>
                             <h2 className= "Article-Title">{title}!</h2>
-                                </Link>                 
-                            
+                                </Link>              
                             <h3 className= "Article-Topic"> {topic}</h3>
                             <h3>by {author}</h3>                            
                         </li>
