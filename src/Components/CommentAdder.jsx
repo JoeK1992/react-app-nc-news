@@ -9,8 +9,7 @@ class CommentAdder extends React.Component {
     };
 
     handlePostComment = () => {
-        postComment(this.props.article_id, this.state.comment, "jessjelly")
-        
+        postComment(this.props.article_id, this.state.comment, "jessjelly")        
     };
 
     handleChange = (event) => {
@@ -30,7 +29,7 @@ class CommentAdder extends React.Component {
             Add a comment: <input type= "text" onChange={this.handleChange}/>
             </label> 
         </form>
-        <button className= "Submit-Comment" onClick={this.handlePostComment}>Submit</button>
+        <button className= "Submit-Comment" disabled= {this.state.comment.length === 0} onClick={this.handlePostComment}>Submit</button>
         </div>
     )
 }
