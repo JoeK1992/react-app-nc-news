@@ -4,7 +4,7 @@ import { getArticleByID, getCommentsByArticleID} from "../utils/functions";
 
 import NavBarArticlesPage from "./NavBarArticlesPage";
 
-import CommentsVoter from "../Components/Comments";
+import CommentsVoter from "../Components/CommentsVoter";
 
 import ArticlesVoter from "./ArticlesVoter";
 
@@ -46,6 +46,7 @@ class SingleArticle extends React.Component {
             <h1>{title}</h1>,
             <h2>{author}</h2>,
             <p>{body}</p>
+            <CommentAdder article_id= {article_id} className= "Comment-Adder"/>
             <ul className= "Comments-List">
                 {comments.map(({author, body, created_at, votes, comment_id}) => (
                     <li className= "Comments-List-Item" key= {comment_id}>                        
@@ -57,7 +58,7 @@ class SingleArticle extends React.Component {
                 ))}
             </ul>
             <ArticlesVoter article_id= {article_id} votes= {votes}/>
-            <CommentAdder className= "Comment-Adder"/>                              
+                                          
             </main>
         )
     
