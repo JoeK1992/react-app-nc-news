@@ -30,8 +30,14 @@ class SingleArticle extends React.Component {
       });
     }
 
+    addComment = (newComment) => {
+      this.setState((currentState) => {
+        return {comments: [newComment, ...currentState.comments]}
+      })
+    }
+
     render() {     
-            
+            console.log(this.state.comments)
             const {title, author, body, votes} = this.state.article
             const {isLoading, comments} = this.state;                   
             const { article_id} = this.props;
@@ -46,7 +52,7 @@ class SingleArticle extends React.Component {
             <h1>{title}</h1>,
             <h2>{author}</h2>,
             <p>{body}</p>
-            <CommentAdder article_id= {article_id} className= "Comment-Adder"/>
+            <CommentAdder addComment= {this.addComment} article_id= {article_id} className= "Comment-Adder"/>
             <ul className= "Comments-List">
                 {comments.map(({author, body, created_at, votes, comment_id}) => (
                     <li className= "Comments-List-Item" key= {comment_id}>                        
@@ -57,8 +63,7 @@ class SingleArticle extends React.Component {
                     </li>
                 ))}
             </ul>
-            <ArticlesVoter article_id= {article_id} votes= {votes}/>
-                                          
+            <ArticlesVoter article_id= {article_id} votes= {votes}/>                                          
             </main>
         )
     

@@ -9,13 +9,14 @@ class CommentAdder extends React.Component {
     };
 
     handlePostComment = () => {
-        postComment(this.props.article_id, this.state.comment, "jessjelly")        
+        postComment(this.props.article_id, this.state.comment, "jessjelly").then((comment) => {
+            this.props.addComment(comment);
+            })        
     };
 
     handleChange = (event) => {
         const value = event.target.value;
-        this.setState({ comment: value }, () => {
-            console.log(value)
+        this.setState({ comment: value }, () => {          
                      
         });
       };

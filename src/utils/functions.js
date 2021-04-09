@@ -12,7 +12,7 @@ export const getArticles = (topic) => {
 
 export const getSortedArticles = (sortOption) => {
   console.log("in get sorted articles");
-  return ncNewsApi.get(`/articles?sorted_by=${sortOption}`).then((res) => {
+  return ncNewsApi.get(`/articles?sort_by=${sortOption}`).then((res) => {
     return res.data.articles;
   });
 };
@@ -38,8 +38,12 @@ export const changeCommentVotes = (comment_id, increment) => {
 };
 
 export const postComment = (article_id, body, username) => {
-  return ncNewsApi.post(`/articles/${article_id}/comments`, {
-    body: body,
-    username: username,
-  });
+  return ncNewsApi
+    .post(`/articles/${article_id}/comments`, {
+      body: body,
+      username: username,
+    })
+    .then((res) => {
+      return res.data.comment;
+    });
 };
