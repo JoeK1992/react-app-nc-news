@@ -1,12 +1,11 @@
 import React from "react";
-
 import {Link} from "@reach/router";
 
 function NavBarArticlesPage () {
     return (
-        <div className="NavBarArticlesPage">
-            <Link to="/" className="Home_Link">
-                <nav>Home</nav>
+        <div>
+            <Link to="/articles" className="Articles_Link">
+                <nav className="NavBarHome">All Articles</nav>
             </Link>
         </div>
     )

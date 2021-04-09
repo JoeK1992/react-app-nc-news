@@ -1,11 +1,11 @@
 import Header from "./Header"
 
-import NavBarHome from "./NavBarHome"
+import NavBarArticlesPage from "./NavBarArticlesPage"
 
 function Home () {
     return (
         <main>
-        <NavBarHome />
+        <NavBarArticlesPage />
         <Header/>
         </main>
     )

@@ -2,7 +2,7 @@ import React from "react";
 
 import {getArticles, getSortedArticles} from "../utils/functions";
 
-import NavBarArticlesPage from "./NavBarArticlesPage";
+import NavBarHome from "./NavBarHome";
 
 import {DropBoxTopic, DropBoxSort} from "./DropBoxs";
 
@@ -49,7 +49,7 @@ class ArticlesPage extends React.Component {
 
         return (
             <main className= "Articles">           
-                <NavBarArticlesPage/>
+                <NavBarHome/>
                 <h1 className= "Header-Text">Articles</h1>
                 Filter articles by topic:  <DropBoxTopic handleTopicChange= {this.handleTopicChange}/>
                 Sort articles by: <DropBoxSort handleSort= {this.handleSort}/>
