@@ -12,37 +12,21 @@ import {Link} from "@reach/router";
 class ArticlesPage extends React.Component {
     state = {
         articles: [],
-        page: 1
+        
     }   
 
     componentDidMount() {
-        getArticles((this.state.page-1)*10, this.state.page*10).then((articles) => {                           
+        getArticles().then((articles) => {                           
             this.setState({articles});
             
             });
-    }
-
-    handlePageChange = (increment) => {
-        console.log(this.state.page)
-        this.setState((currState) => {
-            return {page: currState.page+increment}
-        })
-      }
-
-        getNewPage = (increment) => {
-           
-        this.handlePageChange(increment)
-        getArticles((this.state.page-1)*10, this.state.page*10).then((articles) => {                                   
-            this.setState({articles});
-            });
-
-             }
-             
+    }   
+                    
         handleTopicChange = (event) => {
             if (event.target.value === "All") {
                 event.target.value = undefined
             }
-            getArticles(0, 1000, event.target.value).then((articles) => {
+            getArticles(event.target.value).then((articles) => {
                 this.setState({articles})
             })
         }
@@ -58,9 +42,7 @@ class ArticlesPage extends React.Component {
            
         const articles = this.state.articles;
         return (
-            <main className= "Articles">
-                <button onClick= {() => {this.getNewPage(-1)}} className= "Previous-Articles-Button">previous</button>
-                <button onClick= {() => {this.getNewPage(1)}}className= "More-Articles-Button">more</button>
+            <main className= "Articles">           
                 <NavBarArticlesPage/>
                 <h1 className= "Header-Text">Articles</h1>
                 Filter articles by topic:  <DropBoxTopic handleTopicChange= {this.handleTopicChange}/>
@@ -70,7 +52,7 @@ class ArticlesPage extends React.Component {
                         <li className= "Article-List-Item" key= {article_id}>
                             <Link to= {`/articles/${article_id}`}>
                             <h2 className= "Article-Title">{title}!</h2>
-                                </Link>                  
+                                </Link>                 
                             
                             <h3 className= "Article-Topic"> {topic}</h3>
                             <h3>by {author}</h3>                            

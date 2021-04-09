@@ -4,20 +4,15 @@ const ncNewsApi = axios.create({
   baseURL: "https://joe-nc-news-app.herokuapp.com/api",
 });
 
-export const filterArticlesByNumber = (array, start, end) => {
-  return array.slice(start, end);
-};
-
-export const getArticles = (start, end, topic) => {
+export const getArticles = (topic) => {
   return ncNewsApi.get("/articles", { params: { topic } }).then((res) => {
-    return filterArticlesByNumber(res.data.articles, start, end);
+    return res.data.articles;
   });
 };
 
 export const getSortedArticles = (sortOption) => {
   console.log("in get sorted articles");
   return ncNewsApi.get(`/articles?sorted_by=${sortOption}`).then((res) => {
-    console.log(res.data.articles);
     return res.data.articles;
   });
 };
