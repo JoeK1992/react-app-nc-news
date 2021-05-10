@@ -4,13 +4,14 @@ import { postComment } from "../utils/functions";
 
 class CommentAdder extends React.Component {
   state = {
-    comment: "",
+    text: "",
   };
 
   handlePostComment = (event) => {
     event.preventDefault();
-    postComment(this.props.article_id, this.state.comment, "jessjelly").then(
+    postComment(this.props.article_id, this.state.text, "jessjelly").then(
       (comment) => {
+        this.setState({ text: "" });
         this.props.addComment(comment);
       }
     );
@@ -18,7 +19,7 @@ class CommentAdder extends React.Component {
 
   handleChange = (event) => {
     const value = event.target.value;
-    this.setState({ comment: value }, () => {});
+    this.setState({ text: value });
   };
 
   render() {
@@ -26,11 +27,16 @@ class CommentAdder extends React.Component {
       <div>
         <form onSubmit={this.handlePostComment}>
           <label>
-            Add a comment: <input type="text" onChange={this.handleChange} />
+            Add a comment:{" "}
+            <input
+              value={this.state.text}
+              type="text"
+              onChange={this.handleChange}
+            />
           </label>
           <button
             className="Submit-Comment"
-            disabled={this.state.comment.length === 0}
+            disabled={this.state.text.length === 0}
             type="submit"
           >
             Submit

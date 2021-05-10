@@ -1,39 +1,39 @@
 import React from "react";
 
-import { changeCommentVotes } from "../utils/functions";
+import { changeArticleVotes } from "../utils/functions";
 
-class CommentsVoter extends React.Component {
+class ArticleVoter extends React.Component {
   state = {
     voteChanges: 0,
   };
 
-  updateCommentVotes = (comment_id, increment) => {
+  updateArticleVotes = (article_id, increment) => {
     this.setState((currentState) => {
       return {
         voteChanges: currentState.voteChanges + increment,
       };
     });
-    changeCommentVotes(comment_id, increment);
+    changeArticleVotes(article_id, increment);
   };
 
   render() {
-    const { comment_id, votes } = this.props;
+    const { article_id, votes } = this.props;
 
     return (
-      <div>
+      <div className="Articles-Voter">
         <button
           className="Votes-Plus-Button"
           onClick={() => {
-            this.updateCommentVotes(comment_id, 1);
+            this.updateArticleVotes(article_id, 1);
           }}
         >
           +
         </button>
-        <p>Comment Votes: {this.state.voteChanges + votes}</p>
+        <p>Article Votes: {this.state.voteChanges + votes}</p>
         <button
           className="Votes-Minus-Button"
           onClick={() => {
-            this.updateCommentVotes(comment_id, -1);
+            this.updateArticleVotes(article_id, -1);
           }}
         >
           -
@@ -43,4 +43,4 @@ class CommentsVoter extends React.Component {
   }
 }
 
-export default CommentsVoter;
+export default ArticleVoter;

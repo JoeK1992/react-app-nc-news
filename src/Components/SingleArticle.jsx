@@ -6,13 +6,15 @@ import NavBarArticlesPage from "./NavBarArticlesPage";
 
 import CommentsVoter from "../Components/CommentsVoter";
 
-import ArticlesVoter from "./ArticlesVoter";
+import ArticleVoter from "./ArticleVoter";
 
 import { Loader } from "../Components/Loader";
 
 import CommentAdder from "../Components/CommentAdder";
 
-import DeleteButton from "../Components/DeleteButton";
+import DeleteComment from "./DeleteComment";
+
+import UserAvatar from "../Components/UserAvatar";
 
 class SingleArticle extends React.Component {
   state = {
@@ -57,9 +59,11 @@ class SingleArticle extends React.Component {
     }
 
     return (
-      <main>
+      <main className="Main">
         <NavBarArticlesPage />
-        <h1>{title}</h1>,<h2>{author}</h2>,<p>{body}</p>
+        <h1>{title}</h1>,<h2>{author}</h2>,<UserAvatar username={author} />
+        <p>{body}</p>
+        <ArticleVoter article_id={article_id} votes={votes} />
         <CommentAdder
           addComment={this.addComment}
           article_id={article_id}
@@ -69,12 +73,13 @@ class SingleArticle extends React.Component {
           {comments.map(({ author, body, created_at, votes, comment_id }) => (
             <li className="Comments-List-Item" key={comment_id}>
               <h3>{author}</h3>
+              <UserAvatar username={author} />
               <p>{body}</p>
               <h3>{created_at}</h3>
               <CommentsVoter comment_id={comment_id} votes={votes} />
               <div>
                 {author === "jessjelly" && (
-                  <DeleteButton
+                  <DeleteComment
                     comment_id={comment_id}
                     deleteComment={this.deleteComment}
                   />
@@ -83,7 +88,6 @@ class SingleArticle extends React.Component {
             </li>
           ))}
         </ul>
-        <ArticlesVoter article_id={article_id} votes={votes} />
       </main>
     );
   }

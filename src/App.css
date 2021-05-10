@@ -30,13 +30,19 @@
 
 .Image {
   margin-top: 10px;
-  width: 150px;
+  width: 6em;
+  height: 6em;
   margin: 0px;
+}
+
+Main {
+  height: 100%;
 }
 
 .Articles-List {
   list-style-type: none;
   border-width: 100px lightgreen;
+  text-align: center;
 }
 
 .Article-List-Item {
@@ -73,10 +79,27 @@
 }
 
 .Comments-List {
+  position: absolute;
   list-style-type: none;
+  background-color: rgb(240, 226, 200);
+  margin-top: 0px;
 }
 
 .Submit-Comment {
   background-color: green;
   margin-left: 0.5em;
+}
+
+.Votes-Plus-Button {
+  position: relative;
+  left: 7.3em;
+  top: 2.7em;
+  background-color: green;
+}
+
+.Votes-Minus-Button {
+  position: relative;
+  top: -2.5em;
+  left: -7em;
+  background-color: red;
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 import { removeComment } from "../utils/functions";
 
-class DeleteButton extends React.Component {
+class DeleteComment extends React.Component {
   handleDeleteComment = () => {
     removeComment(this.props.comment_id).then(() => {
       this.props.deleteComment(this.props.comment_id);
@@ -14,4 +14,4 @@ class DeleteButton extends React.Component {
   }
 }
 
-export default DeleteButton;
+export default DeleteComment;
