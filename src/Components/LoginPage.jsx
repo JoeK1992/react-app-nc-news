@@ -1,29 +1,30 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 
 import Button from "react-bootstrap/Button";
 
-import {Link} from "@reach/router";
+import { Link } from "@reach/router";
 
-function Login () {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-
-function validateForm() {
+  function validateForm() {
     return email === "jessjelly@hotmail.com" && password === "password";
-}
+  }
 
-function handleSubmit(event) {
-    
-}
+  function handleSubmit(event) {}
 
-return (
+  return (
     <div className="Login">
       <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
+        <Form.Group
+          style={{ marginBottom: "0.5em" }}
+          size="lg"
+          controlId="email"
+        >
+          <Form.Label style={{ marginBottom: "10em" }}>Email: </Form.Label>
           <Form.Control
             autoFocus
             type="email"
@@ -31,23 +32,36 @@ return (
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
+        <Form.Group
+          style={{ marginBottom: "0.5em" }}
+          size="lg"
+          controlId="password"
+        >
+          <Form.Label style={{ marginLeft: "-1.8em" }}>Password: </Form.Label>
           <Form.Control
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Link to= "/Home">
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Login
-        </Button>
+        <Link to="/Home">
+          <Button
+            style={{ marginBottom: "2em", marginLeft: "1em" }}
+            block
+            size="lg"
+            type="submit"
+            disabled={!validateForm()}
+          >
+            Login
+          </Button>
         </Link>
       </Form>
+      <text>
+        Email: jessjelly@hotmail.co.uk <br />
+        Password: password
+      </text>
     </div>
   );
 }
 
 export default Login;
-

@@ -1,6 +1,6 @@
 export const Loader = () => {
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       <h1>Loading</h1>
     </div>
   );

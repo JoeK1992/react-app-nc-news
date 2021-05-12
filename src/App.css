@@ -98,7 +98,7 @@ Main {
 .Votes-Plus-Button {
   position: relative;
   left: 7.3em;
-  top: 2.7em;
+  top: 2.6em;
   background-color: green;
 }
 
@@ -111,4 +111,9 @@ Main {
 
 .Loader {
   height: 100%;
+}
+
+.Login {
+  height: 100vh;
+  background-color: rgb(240, 226, 200);
 }
