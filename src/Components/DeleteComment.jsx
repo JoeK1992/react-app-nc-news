@@ -10,7 +10,11 @@ class DeleteComment extends React.Component {
   };
 
   render() {
-    return <button onClick={this.handleDeleteComment}>Delete</button>;
+    return (
+      <button className="Delete-Button" onClick={this.handleDeleteComment}>
+        Delete
+      </button>
+    );
   }
 }
 

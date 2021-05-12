@@ -42,7 +42,7 @@ Main {
 .Articles-List {
   list-style-type: none;
   border-width: 100px lightgreen;
-  text-align: center;
+  margin-left: 13em;
 }
 
 .Article-List-Item {
@@ -74,20 +74,25 @@ Main {
   background-color: rgb(145, 192, 83);
 }
 
-.Comment-Adder {
-  margin-top: 10px;
-}
-
 .Comments-List {
   position: absolute;
   list-style-type: none;
   background-color: rgb(240, 226, 200);
-  margin-top: 0px;
+  margin-top: 0em;
+}
+
+.Comments-List-Item {
+  border: solid 5px rgb(145, 145, 233);
+  margin-top: 1em;
 }
 
 .Submit-Comment {
   background-color: green;
   margin-left: 0.5em;
+}
+
+.Delete-Button {
+  margin-bottom: 3em;
 }
 
 .Votes-Plus-Button {
@@ -99,7 +104,11 @@ Main {
 
 .Votes-Minus-Button {
   position: relative;
-  top: -2.5em;
+  top: -2.6em;
   left: -7em;
   background-color: red;
+}
+
+.Loader {
+  height: 100%;
 }

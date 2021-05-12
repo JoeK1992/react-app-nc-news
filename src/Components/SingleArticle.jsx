@@ -55,27 +55,29 @@ class SingleArticle extends React.Component {
     const { article_id } = this.props;
 
     if (isLoading) {
-      return <Loader />;
+      return <Loader className="Loader" />;
     }
 
     return (
       <main className="Main">
         <NavBarArticlesPage />
-        <h1>{title}</h1>,<h2>{author}</h2>,<UserAvatar username={author} />
-        <p>{body}</p>
+        <h1 style={{ fontFamily: "cursive" }}>{title}</h1>
+        <h2 style={{ fontFamily: "cursive" }}>by {author}</h2>
+        <UserAvatar username={author} />
+        <p style={{ fontSize: "1.5em", fontFamily: "cursive" }}>{body}</p>
         <ArticleVoter article_id={article_id} votes={votes} />
         <CommentAdder
           addComment={this.addComment}
           article_id={article_id}
           className="Comment-Adder"
         />
-        <ul className="Comments-List">
+        <ul className="Comments-List" style={{ fontFamily: "cursive" }}>
           {comments.map(({ author, body, created_at, votes, comment_id }) => (
             <li className="Comments-List-Item" key={comment_id}>
-              <h3>{author}</h3>
+              <h3 style={{ fontSize: "2em" }}>{author}</h3>
               <UserAvatar username={author} />
-              <p>{body}</p>
-              <h3>{created_at}</h3>
+              <p style={{ fontSize: "1.5em" }}>{body}</p>
+              <h3 style={{ fontSize: "0.7em" }}>{created_at}</h3>
               <CommentsVoter comment_id={comment_id} votes={votes} />
               <div>
                 {author === "jessjelly" && (

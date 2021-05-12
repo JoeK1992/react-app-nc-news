@@ -45,7 +45,7 @@ class ArticlesPage extends React.Component {
     const { articles, isLoading } = this.state;
 
     if (isLoading) {
-      return <Loader />;
+      return <Loader className="Loader" />;
     }
 
     return (

@@ -29,7 +29,9 @@ class CommentsVoter extends React.Component {
         >
           +
         </button>
-        <p>Comment Votes: {this.state.voteChanges + votes}</p>
+        <p style={{ fontSize: "1em" }}>
+          Comment Votes: {this.state.voteChanges + votes}
+        </p>
         <button
           className="Votes-Minus-Button"
           onClick={() => {
