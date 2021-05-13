@@ -57,7 +57,7 @@ function Login() {
         </Link>
       </Form>
       <text>
-        Email: jessjelly@hotmail.co.uk <br />
+        Email: jessjelly@hotmail.com <br />
         Password: password
       </text>
     </div>
